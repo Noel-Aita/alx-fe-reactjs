@@ -5,6 +5,16 @@ const AddRecipeForm = () => {
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState(""); // renamed from instructions
   const [errors, setErrors] = useState({});
+// the validation function 
+  const validate = () => {
+    const newErrors = {};
+    if (!title.trim()) newErrors.title = "Title is required";
+    if (!ingredients.trim() || ingredients.split("\n").length < 2)
+      newErrors.ingredients = "Ingredients must contain at least 2 items";
+    if (!steps.trim() || steps.split("\n").length < 1)
+      newErrors.steps = "Please provide steps";
+    return newErrors;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
