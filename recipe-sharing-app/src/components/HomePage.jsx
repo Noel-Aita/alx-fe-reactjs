@@ -3,6 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import RecipeList from "./RecipeList";
+import FavoritesList from "./FavoritesList";
+import RecommendationsList from "./RecommendationsList";
 
 const HomePage = () => {
   return (
@@ -16,11 +18,10 @@ const HomePage = () => {
         + Add Recipe
       </Link>
 
-      {/* Search bar */}
       <SearchBar />
-
-      {/* Filtered recipe list */}
       <RecipeList />
+      <FavoritesList />
+      <RecommendationsList />
     </div>
   );
 };
