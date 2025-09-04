@@ -3,14 +3,12 @@ import TodoList from "../components/TodoList";
 import userEvent from "@testing-library/user-event";
 
 describe("TodoList Component", () => {
-  // 1️⃣ Test initial render
   test("renders initial todos", () => {
     render(<TodoList />);
     expect(screen.getByText("Learn React")).toBeInTheDocument();
     expect(screen.getByText("Build a Todo App")).toBeInTheDocument();
   });
 
-  // 2️⃣ Test adding todos
   test("adds a new todo", async () => {
     render(<TodoList />);
     const input = screen.getByPlaceholderText("Add a new todo");
@@ -22,7 +20,6 @@ describe("TodoList Component", () => {
     expect(screen.getByText("Test new todo")).toBeInTheDocument();
   });
 
-  // 3️⃣ Test toggling todos
   test("toggles a todo completed state", () => {
     render(<TodoList />);
     const todo = screen.getByText("Learn React");
@@ -31,7 +28,6 @@ describe("TodoList Component", () => {
     expect(todo).toHaveClass("line-through");
   });
 
-  // 4️⃣ Test deleting todos
   test("deletes a todo", () => {
     render(<TodoList />);
     const todo = screen.getByText("Learn React");

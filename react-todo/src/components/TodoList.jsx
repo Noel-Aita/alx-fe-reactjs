@@ -2,23 +2,16 @@ import { useState } from "react";
 import AddTodoForm from "./AddTodoForm";
 
 export default function TodoList() {
-  // Initial demo todos
   const [todos, setTodos] = useState([
     { id: 1, text: "Learn React", completed: false },
     { id: 2, text: "Build a Todo App", completed: false },
   ]);
 
-  // Add new todo
   const addTodo = (text) => {
-    const newTodo = {
-      id: Date.now(),
-      text,
-      completed: false,
-    };
+    const newTodo = { id: Date.now(), text, completed: false };
     setTodos([...todos, newTodo]);
   };
 
-  // Toggle completed status
   const toggleTodo = (id) => {
     setTodos(
       todos.map((todo) =>
@@ -27,7 +20,6 @@ export default function TodoList() {
     );
   };
 
-  // Delete todo
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -36,7 +28,6 @@ export default function TodoList() {
     <div className="p-4 max-w-md mx-auto">
       <h2 className="text-xl font-bold mb-4">Todo List</h2>
       <AddTodoForm addTodo={addTodo} />
-
       <ul>
         {todos.map((todo) => (
           <li

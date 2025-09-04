@@ -16,8 +16,8 @@ export default function AddTodoForm({ addTodo }) {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="border p-2 flex-1"
         placeholder="Add a new todo"
+        className="border p-2 flex-1"
       />
       <button type="submit" className="bg-blue-500 text-white px-3 py-2 rounded">
         Add
