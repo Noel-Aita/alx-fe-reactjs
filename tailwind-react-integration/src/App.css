@@ -5,6 +5,28 @@
   text-align: center;
 }
 
+.user-profile{
+  display: flex;
+  background-color: gray;
+  padding: 8px;
+  max-width: 400px;
+
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 6px;
+}
+
+.read-the-docs{
+  color: blue;
+  
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -16,6 +38,10 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.logo.react{
+  border-radius: 50px;
 }
 
 @keyframes logo-spin {
