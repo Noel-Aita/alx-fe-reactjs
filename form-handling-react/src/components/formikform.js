@@ -13,7 +13,7 @@ export default function FormikForm() {
       .required("Password is required"),
   });
 
-  // ✅ Initial form values
+  // ✅ Initial form value
   const initialValues = {
     username: "",
     email: "",
