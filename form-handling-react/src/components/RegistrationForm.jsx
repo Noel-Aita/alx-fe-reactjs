@@ -55,7 +55,7 @@ export default function RegistrationForm() {
         {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
       </div>
 
-      {/* Password */}
+      {/* Password  */}
       <div className="mb-3">
         <label className="block mb-1">Password</label>
         <input
