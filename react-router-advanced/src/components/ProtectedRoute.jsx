@@ -1,11 +1,12 @@
 import { Navigate } from "react-router-dom";
-
-// Simulated authentication
-const isAuthenticated = false; // change to true to test access
+import useAuth from "../hooks/useAuth";
 
 export default function ProtectedRoute({ children }) {
+  const { isAuthenticated } = useAuth(); // ✅ useAuth hook
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
+
   return children;
 }
