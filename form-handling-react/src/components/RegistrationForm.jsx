@@ -1,41 +1,27 @@
 import { useState } from "react";
 
 export default function RegistrationForm() {
-  // Step 1: Set up state for each input field
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  // Separate states for each input
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [errors, setErrors] = useState({}); // to store validation errors
+  const [errors, setErrors] = useState({});
 
-  // Step 2: Handle input change
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  // Step 3: Handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
     let newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.password) newErrors.password = "Password is required";
+    if (!username) newErrors.username = "Username is required";
+    if (!email) newErrors.email = "Email is required";
+    if (!password) newErrors.password = "Password is required";
 
     setErrors(newErrors);
 
-    // Stop if errors exist
     if (Object.keys(newErrors).length > 0) return;
 
-    // Mock API request
-    console.log("Sending to API:", formData);
+    // Mock API submission
+    console.log("Sending to API:", { username, email, password });
     alert("Form submitted successfully!");
   };
 
@@ -43,40 +29,40 @@ export default function RegistrationForm() {
     <form onSubmit={handleSubmit} className="p-6 border rounded max-w-sm mx-auto">
       <h2 className="text-xl font-bold mb-4">User Registration</h2>
 
-      {/* Username Field */}
+      {/* Username */}
       <div className="mb-3">
         <label className="block mb-1">Username</label>
         <input
           type="text"
           name="username"
-          value={formData.username}
-          onChange={handleChange}
+          value={username}          // ✅ explicit state binding
+          onChange={(e) => setUsername(e.target.value)}
           className="border p-2 w-full"
         />
         {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
       </div>
 
-      {/* Email Field */}
+      {/* Email */}
       <div className="mb-3">
         <label className="block mb-1">Email</label>
         <input
           type="email"
           name="email"
-          value={formData.email}
-          onChange={handleChange}
+          value={email}             // ✅ explicit state binding
+          onChange={(e) => setEmail(e.target.value)}
           className="border p-2 w-full"
         />
         {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
       </div>
 
-      {/* Password Field */}
+      {/* Password */}
       <div className="mb-3">
         <label className="block mb-1">Password</label>
         <input
           type="password"
           name="password"
-          value={formData.password}
-          onChange={handleChange}
+          value={password}          // ✅ explicit state binding
+          onChange={(e) => setPassword(e.target.value)}
           className="border p-2 w-full"
         />
         {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
