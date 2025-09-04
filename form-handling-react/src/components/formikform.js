@@ -22,7 +22,7 @@ export default function FormikForm() {
     alert("Formik form submitted successfully!");
   };
 
-  return (
+  return ( //values
     <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
       {() => (
         <Form className="p-6 border rounded max-w-sm mx-auto">
