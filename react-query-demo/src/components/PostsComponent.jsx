@@ -8,15 +8,14 @@ const fetchPosts = async () => {
 };
 
 export default function PostsComponent() {
-  // useQuery automatically fetches, caches, and tracks loading/error states
-  const { data, error, isLoading, refetch } = useQuery({
-    queryKey: ["posts"],      // Unique key for caching
+  const { data, isLoading, isError, error, refetch } = useQuery({
+    queryKey: ["posts"],
     queryFn: fetchPosts,
-    staleTime: 1000 * 60 * 5, // Cache data for 5 minutes
+    staleTime: 1000 * 60 * 5, // cache for 5 minutes
   });
 
   if (isLoading) return <p>Loading posts...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (isError) return <p>Error: {error.message}</p>;
 
   return (
     <div className="p-4 max-w-2xl mx-auto">
