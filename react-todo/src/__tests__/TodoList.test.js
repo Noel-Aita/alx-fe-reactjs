@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import TodoList from "../components/TodoList";
 import userEvent from "@testing-library/user-event";
+import TodoList from "../components/TodoList";
 
 describe("TodoList Component", () => {
   test("renders initial todos", () => {
@@ -34,6 +34,8 @@ describe("TodoList Component", () => {
     const deleteButton = todo.querySelector("button");
 
     fireEvent.click(deleteButton);
-    expect(todo).not.toBeInTheDocument();
+
+    // ensure it's removed from the document
+    expect(screen.queryByText("Learn React")).not.toBeInTheDocument();
   });
 });
