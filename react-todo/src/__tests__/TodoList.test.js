@@ -9,7 +9,7 @@ describe("TodoList Component", () => {
     expect(screen.getByText("Build a Todo App")).toBeInTheDocument();
   });
 
-  test("adds a new todo", async () => {
+  test("adds a new todo", async () => { //
     render(<TodoList />);
     const input = screen.getByPlaceholderText("Add a new todo");
     const button = screen.getByText("Add");
